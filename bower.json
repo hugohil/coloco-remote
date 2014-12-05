@@ -1,0 +1,21 @@
+{
+  "name": "coloco-remote",
+  "version": "0.0.0",
+  "authors": [
+    "@hugohil"
+  ],
+  "description": "remote interface for coloco sound system",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "https://github.com/hugohil/coloco-remote",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}
