@@ -1,5 +1,5 @@
 var socket = io('http://localhost:1337');
-var front = io('http://localhost:1337/front');
+var front = io('http://localhost:1337/remote');
 var songs = songs || [];
 var stack = stack || [];
 var delivery = new Delivery(front);
@@ -28,12 +28,14 @@ function init(){
 
   delivery.on('delivery.connect', function (delivery){
     $('.js-trigger').click(function (event){
-      for (var i = 0; i < stack.length; i++) {
-        delivery.send(stack[i]);
-        console.log(stack[i].name + ' sent.');
-      };
-      stack = [];
-      $('#stack li').remove();
+      if(stack.length){
+        for (var i = 0; i < stack.length; i++) {
+          delivery.send(stack[i]);
+          console.log(stack[i].name + ' sent.');
+        };
+        stack = [];
+        $('#stack li').remove();
+      }
     });
   });
 }
