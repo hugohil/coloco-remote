@@ -7,12 +7,27 @@
 </head>
 <body>
 
-  <ul id="playlist"></ul>
-  <ul id="stack"></ul>
-
-  <input type="file" name="hello" class="js-file">
-  <button class="btn" id="add">Add to stack</button>
-  <button class="btn btn-primary js-trigger">Send stack</button>
+<div class="container-fuild">
+  <div class="row">
+    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+      <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+          <input type="file" name="hello"  class="js-file">
+          <button class="btn" id="add">Add to stack</button>
+          <button class="btn btn-primary js-trigger">Send stack</button>
+          <ul id="stack"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+      <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+          <ul id="playlist"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="http://localhost:1337/socket.io/socket.io.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
