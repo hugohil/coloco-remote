@@ -18,26 +18,34 @@ socket.on('new-song', function (name){
 })
 
 function init(){
-  $('#add').click(function (event){
+  $('.js-add-to-stack').click(function (event){
     var input = $('.js-file')[0];
     var file = input.files[0];
-    addToList('#stack', file.name);
-    stack.push(file);
-    input.value = null;
+    if(file){
+      stack.push(file);
+      addToList('#stack', file.name);
+      input.value = null;
+    } // else disable button
   });
 
   delivery.on('delivery.connect', function (delivery){
     $('.js-trigger').click(function (event){
-      if(stack.length){
-        for (var i = 0; i < stack.length; i++) {
-          delivery.send(stack[i]);
-          console.log(stack[i].name + ' sent.');
-        };
-        stack = [];
-        $('#stack li').remove();
-      }
+      sendStackedSong();
     });
   });
+
+  socket.on('saved-song', function(){
+    sendStackedSong();
+  })
+
+  function sendStackedSong(){
+    if(stack.length){
+      delivery.send(stack[0]);
+      console.log(stack[0].name + ' sent.');
+      stack.splice(0, 1);
+      $('#stack li:first-child').remove();
+    }
+  }
 }
 
 function addToList (list, name){
