@@ -12,7 +12,7 @@
     <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
       <div class="row">
         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-          <input type="file" name="hello"  class="js-file">
+          <input type="file" name="hello" class="js-file">
           <ul id="stack"></ul>
           <button class="btn js-add-to-stack">Add to stack</button>
           <button class="btn btn-primary js-trigger">Send stack</button>
@@ -22,6 +22,19 @@
     <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
       <div class="row">
         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+          <div>
+            <button class="btn" id="prev">&larr;</button>
+            <button class="btn" id="play">&ge;</button>
+            <button class="btn" id="next">&rarr;</button>
+          </div>
+          <div>
+            <form>
+              <label for="rand">Shuffle</label>
+              <input type="checkbox" id="rand">
+              <label for="auto">Autoplay</label>
+              <input type="checkbox" id="auto" checked>
+            </form>
+          </div>
           <ul id="playlist"></ul>
         </div>
       </div>
